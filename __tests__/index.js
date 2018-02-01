@@ -1,42 +1,45 @@
 var GCalHelper = require("./../index");
 var moment = require("moment");
+var config = require("../config/test");
 
-let gcalHelper = new GCalHelper();
-
-test("Got start and end", () => {
-    gcalHelper.listEvents(
-        moment([2018, 0, 26, 0, 0, 0]),
-        moment([2018, 0, 26, 23, 59, 59])
-    );
+let gCalHelper = new GCalHelper({
+    CLIENT_EMAIL: config.CLIENT_EMAIL,
+    PRIVATE_KEY: config.PRIVATE_KEY
 });
 
-test("Got start", () => {
-    gcalHelper.listEvents(
-        moment([2018, 0, 26, 0, 0, 0])
-    );
+test("Got start and end", async () => {
+    await gCalHelper
+        .listEvents({
+            start: "2018-02-01",
+            end: "2018-02-28"
+        })
+        .then(function(events) {
+            expect(events.length).toBe(1);
+        });
 });
 
-test("Got end", () => {
-    gcalHelper.listEvents(
-        undefined,
-        moment([2018, 0, 26, 23, 59, 59])
-    );
+test("Got start", async () => {
+    await gCalHelper
+        .listEvents({
+            start: "2018-02-01"
+        })
+        .then(function(events) {
+            expect(events.length).toBe(1);
+        });
 });
 
-test("Miss both", () => {
-    gcalHelper.listEvents();
+test("Got end", async () => {
+    await gCalHelper
+        .listEvents({
+            end: "2018-02-28"
+        })
+        .then(function(events) {
+            expect(events.length).toBe(1);
+        });
 });
 
-// gcalHelper.addEvents({
-//     start: {
-//         dateTime: moment()
-//             .add(4, "h")
-//             .format()
-//     },
-//     end: {
-//         dateTime: moment()
-//             .add(5, "h")
-//             .format()
-//     },
-//     summary: "Dinner"
-// });
+test("Miss both", async () => {
+    await gCalHelper.listEvents().then(function(events) {
+        // handle events...
+    });
+});

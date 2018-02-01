@@ -1,2 +1,4 @@
 node_modules
 private_key.json
+config/test.js
+.vscode
