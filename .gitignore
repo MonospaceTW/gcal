@@ -1,2 +1,5 @@
 node_modules
 private_key.json
+secret
+config/test.js
+app.js
