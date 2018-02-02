@@ -9,14 +9,14 @@ npm install
 1. 新增專案
 2. 前往[API和服務](https://console.cloud.google.com/apis/credentials)
 
-![API和服務](./images/1.PNG)
+![API和服務](images/1.png)
 
 3. 建立服務帳戶金鑰
 
-![API和服務](./images/2.PNG)
+![API和服務](images/2.png)
 
 4. 將私密金鑰存至電腦中
-![API和服務](./images/3.PNG)
+![API和服務](images/3.png)
 
 
 ## 範例
