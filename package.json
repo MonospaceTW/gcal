@@ -9,11 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest-cli": "^22.1.4"
+    "jest-cli": "^24.8.0"
   },
   "dependencies": {
     "google-auth-library": "^0.12.0",
-    "googleapis": "^25.0.0",
+    "googleapis": "^42.0.0",
     "moment": "^2.20.1",
     "node-google-calendar": "^1.1.1"
   }
